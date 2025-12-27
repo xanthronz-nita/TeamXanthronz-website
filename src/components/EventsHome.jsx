@@ -45,12 +45,15 @@ export default function EventsHome() {
     };
 
     return (
-        <div className="w-full min-h-[70vh] bg-black/70 flex flex-col justify-center items-center py-20">
-            <h1 className="md:text-5xl font-[Orbitron] font-semibold mb-16 text-green-500 tracking-wide">
+        <div className="w-full min-h-screen bg-black/70 flex flex-col justify-center items-center py-16 sm:py-20 px-4">
+            
+            {/* Heading */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-[Orbitron] font-semibold mb-12 sm:mb-16 text-green-500 tracking-wide text-center">
                 Upcoming Events
             </h1>
 
-            <div className="flex flex-wrap justify-center gap-10">
+            {/* Events Cards */}
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-6 sm:gap-8 lg:gap-10 w-full max-w-7xl">
                 {events.map((event, i) => (
                     <motion.div
                         key={event.id}
@@ -58,60 +61,70 @@ export default function EventsHome() {
                         variants={cardVariants}
                         initial="hidden"
                         animate="visible"
-                        className="relative w-[25vw] h-[25vh] rounded-2xl overflow-hidden shadow-xl border border-green-200/50 bg-cyan-400/5 p-6 flex flex-col justify-between"
+                        className="relative w-full sm:w-[45%] lg:w-[30%]
+                        min-h-[260px] rounded-2xl overflow-hidden shadow-xl
+                        border border-green-200/50 bg-cyan-400/5
+                        p-5 sm:p-6 flex flex-col justify-between"
                     >
                         {/* Event Title */}
-                        <h2 className="text-xl font-semibold text-white font-mono text-center mb-2">
+                        <h2 className="text-lg sm:text-xl font-semibold text-white font-mono text-center mb-3">
                             {event.name}
                         </h2>
 
                         {/* Date & Venue */}
-                        <div className="flex flex-col items-center gap-2 text-sm text-green-300">
+                        <div className="flex flex-col items-center gap-2 text-xs sm:text-sm text-green-300">
                             <div className="flex items-center gap-2">
                                 <CalendarDays size={16} />
                                 <span>{event.date}</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 text-center">
                                 <MapPin size={16} />
                                 <span>{event.venue}</span>
                             </div>
                         </div>
 
                         {/* Description */}
-                        <p className="text-gray-300 text-sm text-center mt-4 leading-relaxed">
+                        <p className="text-gray-300 text-xs sm:text-sm text-center mt-4 leading-relaxed">
                             {event.description}
                         </p>
 
-                        {/* Glow animation stripe (same style theme) */}
+                        {/* Glow Stripe */}
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-[opacity,transform] duration-500" />
                     </motion.div>
                 ))}
             </div>
 
-            <div>
-                <button className="mt-16 border border-cyan-300/50 p-2 rounded-sm text-green-400 font-semibold font-mono bg-slate-800 hover:rounded-2xl hover:bg-green-500 hover:text-black hover:ease-in-out duration-700">
-                    View All Events →
-                </button>
-            </div>
-            <div className="justify-center item-center text-center mb-10">
-                <h1 className="md:text-5xl font-[Orbitron] font-semibold mb-16 text-green-500 tracking-wide pt-[10vh]">
+            {/* View All Button */}
+            <button className="mt-12 sm:mt-16 border border-cyan-300/50 px-4 py-2 rounded-sm
+            text-green-400 font-semibold font-mono bg-slate-800
+            hover:rounded-2xl hover:bg-green-500 hover:text-black duration-700">
+                View All Events →
+            </button>
+
+            {/* Sponsors */}
+            <div className="w-full text-center mt-20 sm:mt-28">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-[Orbitron] font-semibold mb-12 sm:mb-16 text-green-500 tracking-wide">
                     Our Partners
                 </h1>
                 <Sponsors />
             </div>
-            <div className="flex flex-col items-center justify-center text-center pb-5"><h3 className="text-xl text-green-400 font-mono">
+
+            {/* Reach Out */}
+            <div className="flex flex-col items-center justify-center text-center mt-16 pb-5">
+                <h3 className="text-lg sm:text-xl text-green-400 font-mono mb-6">
                     Reach out to us for collaborations.
                 </h3>
 
-                <button className="flex items-center justify-center mt-8 border border-cyan-300/50 px-4 py-2 rounded-sm text-green-400 font-semibold font-mono bg-cyan-900 hover:rounded-2xl hover:bg-green-500 hover:text-black hover:ease-in-out duration-700">
-                    <span className="mr-2 font-mono">Reach out</span>
-                    <span>
-                        <img
-                            className="h-5 invert brightness-0"
-                            src="/images/image.png"
-                            alt="mail"
-                        />
-                    </span>
+                <button className="flex items-center justify-center gap-2
+                border border-cyan-300/50 px-5 py-2 rounded-sm
+                text-green-400 font-semibold font-mono bg-cyan-900
+                hover:rounded-2xl hover:bg-green-500 hover:text-black duration-700">
+                    <span>Reach out</span>
+                    <img
+                        className="h-5 invert brightness-0"
+                        src="/images/image.png"
+                        alt="mail"
+                    />
                 </button>
             </div>
         </div>
