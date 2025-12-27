@@ -42,7 +42,7 @@ export default function Event() {
   const [activeTab, setActiveTab] = useState("upcoming");
 
   return (
-    <section className="bg-black/90 text-gray-200 min-h-screen py-16 text-sm">
+    <section className="relative bg-black/90 text-gray-200 min-h-screen py-12 sm:py-16 text-sm overflow-hidden">
       {/* Background Video */}
       <video
         className="fixed inset-0 w-full h-full object-cover -z-20"
@@ -52,25 +52,25 @@ export default function Event() {
         loop
         playsInline
       />
-      <div className="fixed bg-cyan-300/50 inset-0 w-full h-full -z-20" />
+      <div className="fixed bg-cyan-300/40 inset-0 w-full h-full -z-20" />
 
       {/* Heading */}
-      <div className="text-center mb-12">
-        <h2 className="md:text-2xl font-[orbitron] font-bold text-green-400 mb-3">
+      <div className="text-center mb-10 sm:mb-12 px-4">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-[orbitron] font-bold text-green-400 mb-3">
           Club Events
         </h2>
-        <p className="text-gray-400 text-sm font-semibold">
+        <p className="text-gray-400 text-xs sm:text-sm font-semibold">
           🚀 Explore our journey through events & innovations
         </p>
       </div>
 
       {/* Tabs */}
-      <div className="flex justify-center gap-4 mb-12 text-xs font-semibold">
+      <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-10 sm:mb-12 text-xs sm:text-sm font-semibold px-4">
         {["upcoming", "completed"].map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`px-5 py-2 rounded-md border duration-300 ${
+            className={`px-4 sm:px-5 py-2 rounded-md border duration-300 ${
               activeTab === tab
                 ? "bg-green-500 text-black border-green-400"
                 : "border-green-400/40 text-green-400 hover:bg-green-600 hover:text-black"
@@ -82,21 +82,23 @@ export default function Event() {
       </div>
 
       {/* Events Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-10 justify-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 px-4 sm:px-8 lg:px-12 justify-items-center">
         {eventsData[activeTab].map((event) => (
           <motion.div
             key={event.id}
             whileHover={{ scale: 1.05, rotateY: 6 }}
             transition={{ type: "spring", stiffness: 120 }}
-            className="bg-zinc-900/60 border border-green-400/30 backdrop-blur-md shadow-md rounded-2xl p-6 w-72 hover:border-green-400/60"
+            className="bg-zinc-900/60 border border-green-400/30 backdrop-blur-md shadow-md
+            rounded-2xl p-5 sm:p-6 w-full max-w-xs sm:max-w-sm hover:border-green-400/60"
           >
-            <h3 className="text-green-400 text-lg font-semibold mb-2">
+            <h3 className="text-green-400 text-base sm:text-lg font-semibold mb-2">
               {event.title}
             </h3>
 
             <div className="flex items-center gap-2 text-xs text-gray-400 mb-1">
               <Calendar size={14} /> {event.date}
             </div>
+
             <div className="flex items-center gap-2 text-xs text-gray-400 mb-3">
               <MapPin size={14} /> {event.venue}
             </div>
