@@ -2,3 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ------------------------------
+   Global responsive & UX safety
+   (OPTIONAL but PRO-LEVEL)
+-------------------------------- */
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  @apply bg-black text-white antialiased;
+}
+
+/* Prevent horizontal overflow on mobile */
+* {
+  box-sizing: border-box;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Smooth scrolling for anchor navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better text rendering on all screens */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
