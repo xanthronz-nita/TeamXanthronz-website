@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { X, Upload, ChevronDown } from "lucide-react";
 import api from "../api/axiosInstance.js";
+import { getErrorMessage } from "../utils/errorHandler.js";
 
 /**
  * Reusable FormModal component for all CRUD operations across the app
@@ -110,7 +111,7 @@ export default function FormModal({ tab, record, onClose, onSuccess }) {
         onSuccess(res.data.data, isEdit);
       }
     } catch (err) {
-      setError(err.message || err.response?.data?.message || "Something went wrong.");
+      setError(getErrorMessage(err));
     } finally {
       setIsSubmitting(false);
     }

@@ -38,7 +38,7 @@ export default function Gallery() {
         setSliderImages(sliderRes.data.data);
         setCollageImages(collageRes.data.data);
       } catch (err) {
-        console.error("Failed to fetch gallery:", err);
+        console.error("Failed to fetch gallery:", getErrorMessage(err));
       } finally {
         setIsLoading(false);
       }
@@ -98,7 +98,8 @@ export default function Gallery() {
         setCollageImages((prev) => prev.filter((img) => img.id !== id));
       }
     } catch (err) {
-      console.error("Failed to delete image:", err);
+      console.error("Failed to delete image:", getErrorMessage(err));
+      alert(getErrorMessage(err));
     }
   };
 
@@ -119,7 +120,8 @@ export default function Gallery() {
         setCollageImages(res.data.data);
       }
     } catch (err) {
-      console.error("Failed to change image type:", err);
+      console.error("Failed to change image type:", getErrorMessage(err));
+      alert(getErrorMessage(err));
     }
   };
 

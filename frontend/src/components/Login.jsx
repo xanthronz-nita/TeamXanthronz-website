@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
 import api from "../api/axiosInstance.js";
+import { getErrorMessage } from "../utils/errorHandler.js";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -46,7 +47,7 @@ export default function Login() {
         navigate("/");
       }
     } catch (err) {
-      setError(err.response?.data?.message || "Something went wrong. Try again.");
+      setError(getErrorMessage(err));
     } finally {
       setIsLoading(false);
     }

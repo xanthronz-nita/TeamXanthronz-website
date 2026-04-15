@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import { errorHandler } from "./middleware/error.middleware.js";
 
 const app = express();
+app.set('trust Proxy', 1)
 
 app.use(helmet());
 

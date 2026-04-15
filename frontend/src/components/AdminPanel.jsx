@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import api from "../api/axiosInstance.js";
+import { getErrorMessage } from "../utils/errorHandler.js";
 import FormModal from "./FormModal.jsx";
 
 // ─── Tab config ───────────────────────────────────────────────────────────────
@@ -131,7 +132,7 @@ export default function AdminPanel() {
         : res.data.data;
       setRecords(Array.isArray(data) ? data : []);
     } catch (err) {
-      console.error("Failed to fetch records:", err);
+      console.error("Failed to fetch records:", getErrorMessage(err));
       setRecords([]);
     } finally {
       setIsLoading(false);
@@ -147,7 +148,8 @@ export default function AdminPanel() {
       await api.delete(`/${activeTab.key}/${id}`);
       setRecords((prev) => prev.filter((r) => r.id !== id));
     } catch (err) {
-      console.error("Failed to delete:", err);
+      console.error("Failed to delete:", getErrorMessage(err));
+      alert(getErrorMessage(err));
     }
   };
 
@@ -162,7 +164,8 @@ export default function AdminPanel() {
       });
       setRecords((prev) => prev.map((r) => r.id === id ? res.data.data : r));
     } catch (err) {
-      console.error("Failed to resolve request:", err);
+      console.error("Failed to resolve request:", getErrorMessage(err));
+      alert(getErrorMessage(err));
     }
   };
 
@@ -171,7 +174,8 @@ export default function AdminPanel() {
       const res = await api.put(`/users/${id}/role`, { role });
       setRecords((prev) => prev.map((r) => r.id === id ? res.data.data : r));
     } catch (err) {
-      console.error("Failed to update role:", err);
+      console.error("Failed to update role:", getErrorMessage(err));
+      alert(getErrorMessage(err));
     }
   };
 
@@ -180,7 +184,8 @@ export default function AdminPanel() {
       const res = await api.put(`/gallery/${id}`, { type: newType });
       setRecords((prev) => prev.map((r) => r.id === id ? res.data.data : r));
     } catch (err) {
-      console.error("Failed to change gallery type:", err);
+      console.error("Failed to change gallery type:", getErrorMessage(err));
+      alert(getErrorMessage(err));
     }
   };
 

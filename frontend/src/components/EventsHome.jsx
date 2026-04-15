@@ -4,6 +4,7 @@ import { CalendarDays, MapPin, ArrowRight, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import Sponsors from "./Sponsors.jsx";
 import api from "../api/axiosInstance.js";
+import { getErrorMessage } from "../utils/errorHandler.js";
 
 export default function EventsHome() {
   const [events, setEvents] = useState([]);
@@ -18,7 +19,7 @@ export default function EventsHome() {
           .slice(0, 3);
         setEvents(sorted);
       } catch (err) {
-        console.error("Failed to fetch events:", err);
+        console.error("Failed to fetch events:", getErrorMessage(err));
       }
     };
     fetchEvents();

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Trophy, Plus, Pencil, Trash2 } from "lucide-react";
 import api from "../api/axiosInstance.js";
 import { useAuth } from "../context/AuthContext.jsx";
+import { getErrorMessage } from "../utils/errorHandler.js";
 import FormModal from "./FormModal.jsx";
 
 export default function AchievementsPage() {
@@ -46,7 +47,7 @@ export default function AchievementsPage() {
         setHasMore(res.data.data.hasMore);
         setPage(1);
       } catch (err) {
-        console.error("Failed to fetch achievements:", err);
+        console.error("Failed to fetch achievements:", getErrorMessage(err));
       } finally {
         setIsLoading(false);
       }
@@ -67,7 +68,7 @@ export default function AchievementsPage() {
       setHasMore(res.data.data.hasMore);
       setPage(nextPage);
     } catch (err) {
-      console.error("Failed to load more achievements:", err);
+      console.error("Failed to load more achievements:", getErrorMessage(err));
     } finally {
       setLoadingMore(false);
     }
@@ -80,7 +81,8 @@ export default function AchievementsPage() {
       await api.delete(`/achievements/${id}`);
       setAchievements((prev) => prev.filter((a) => a.id !== id));
     } catch (err) {
-      console.error("Failed to delete achievement:", err);
+      console.error("Failed to delete achievement:", getErrorMessage(err));
+      alert(getErrorMessage(err));
     }
   };
 

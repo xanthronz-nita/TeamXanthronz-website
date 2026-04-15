@@ -4,6 +4,7 @@ import { Menu, X, Image, Info, ChevronRight, Zap, LogOut, Shield, MessageSquareP
 import { useAuth } from "../context/AuthContext.jsx";
 import RequestChangeModal from "./RequestChangeModal.jsx";
 import api from "../api/axiosInstance.js";
+import { getErrorMessage } from "../utils/errorHandler.js";
 
 const NAV_LINKS = [
   { to: "/", label: "Home" },
@@ -56,7 +57,7 @@ export default function Header() {
           const pendingCount = res.data.data.filter((req) => req.status === "PENDING").length;
           setPendingRequestsCount(pendingCount);
         } catch (err) {
-          console.error("Failed to fetch requests:", err);
+          console.error("Failed to fetch requests:", getErrorMessage(err));
         }
       };
       fetchPendingRequests();

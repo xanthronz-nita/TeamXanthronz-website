@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Github, Linkedin, Mail, X, Crown, Plus, Pencil, Trash2 } from "lucide-react";
 import api from "../api/axiosInstance.js";
 import { useAuth } from "../context/AuthContext.jsx";
+import { getErrorMessage } from "../utils/errorHandler.js";
 import FormModal from "./FormModal.jsx";
 
 export default function Squads() {
@@ -39,7 +40,7 @@ export default function Squads() {
         const res = await api.get("/squads");
         setMembers(res.data.data);
       } catch (err) {
-        console.error("Failed to fetch members:", err);
+        console.error("Failed to fetch members:", getErrorMessage(err));
       } finally {
         setIsLoading(false);
       }
@@ -74,7 +75,8 @@ export default function Squads() {
       // close modal if deleted member was open
       if (selectedMember?.id === id) setSelectedMember(null);
     } catch (err) {
-      console.error("Failed to delete member:", err);
+      console.error("Failed to delete member:", getErrorMessage(err));
+      alert(getErrorMessage(err));
     }
   };
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../api/axiosInstance.js";
+import { getErrorMessage } from "../utils/errorHandler.js";
 
 export default function Sponsors() {
   const [logos, setLogos] = useState([]);
@@ -10,7 +11,7 @@ export default function Sponsors() {
         const res = await api.get("/sponsors");
         setLogos(res.data.data);
       } catch (err) {
-        console.error("Failed to fetch sponsors:", err);
+        console.error("Failed to fetch sponsors:", getErrorMessage(err));
       }
     };
     fetchSponsors();

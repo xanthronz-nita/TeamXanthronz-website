@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, MessageSquarePlus, Send } from "lucide-react";
 import api from "../api/axiosInstance.js";
+import { getErrorMessage } from "../utils/errorHandler.js";
 
 // Usage:
 // <ChangeRequestModal isOpen={open} onClose={() => setOpen(false)} />
@@ -45,7 +46,7 @@ export default function ChangeRequestModal({ isOpen, onClose }) {
         onClose();
       }, 2000);
     } catch (err) {
-      setError(err.response?.data?.message || "Failed to submit request. Try again.");
+      setError(getErrorMessage(err));
     } finally {
       setIsSubmitting(false);
     }

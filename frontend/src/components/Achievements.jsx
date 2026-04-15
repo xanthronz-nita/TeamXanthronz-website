@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, ArrowRight, Trophy } from "lucide-react";
 import { Link } from "react-router-dom";
 import api from "../api/axiosInstance.js";
+import { getErrorMessage } from "../utils/errorHandler.js";
 
 // accent color cycles through these based on index
 const ACCENT_COLORS = ["#00FF88", "#00CCFF", "#00FF88", "#00CCFF", "#FFD700", "#00FF88"];
@@ -19,7 +20,7 @@ export default function Achievements() {
         const res = await api.get("/achievements?page=1");
         setAchievements(res.data.data.achievements);
       } catch (err) {
-        console.error("Failed to fetch achievements:", err);
+        console.error("Failed to fetch achievements:", getErrorMessage(err));
       } finally {
         setIsLoading(false);
       }

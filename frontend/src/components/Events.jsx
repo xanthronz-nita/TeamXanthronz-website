@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, MapPin, CheckCircle, Clock, ArrowRight, Plus, Pencil, Trash2 } from "lucide-react";
 import api from "../api/axiosInstance.js";
 import { useAuth } from "../context/AuthContext.jsx";
+import { getErrorMessage } from "../utils/errorHandler.js";
 import FormModal from "./FormModal.jsx";
 
 export default function Events() {
@@ -36,7 +37,7 @@ export default function Events() {
         const res = await api.get(`/events?status=${activeTab}`);
         setEvents(res.data.data);
       } catch (err) {
-        console.error("Failed to fetch events:", err);
+        console.error("Failed to fetch events:", getErrorMessage(err));
       } finally {
         setIsLoading(false);
       }
@@ -50,7 +51,8 @@ export default function Events() {
       await api.delete(`/events/${id}`);
       setEvents((prev) => prev.filter((e) => e.id !== id));
     } catch (err) {
-      console.error("Failed to delete event:", err);
+      console.error("Failed to delete event:", getErrorMessage(err));
+      alert(getErrorMessage(err));
     }
   };
 
