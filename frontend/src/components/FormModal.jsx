@@ -228,7 +228,7 @@ export default function FormModal({ tab, record, onClose, onSuccess }) {
                         ? "Upload new image (optional)"
                         : "Click to upload"}
                     </span>
-                    <span className="text-[10px] text-gray-600">Max 300KB</span>
+                    <span className="text-[10px] text-gray-600">Max 700KB</span>
                   </div>
                 ) : (
                   <input
