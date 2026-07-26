@@ -1,0 +1,29 @@
+# Server
+PORT=5000
+NODE_ENV=development
+
+# Database
+# DATABASE_URL="postgresql://<username>:<username>@localhost:5432/<database_name>" 
+
+# Connect to Supabase via connection pooling
+DATABASE_URL="<supabase_connection_string(link)>"
+
+# Direct connection to the database. Used for migrations
+DIRECT_URL="direct_url_for_supabase"
+
+# JWT
+JWT_SECRET=
+JWT_REFRESH_SECRET=
+JWT_EXPIRES_IN=15m
+JWT_REFRESH_EXPIRES_IN=7d
+
+# Client
+CLIENT_URL=http://127.0.0.1:5173
+
+# Cron
+CRON_SECRET=
+
+# Cloudinary 
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=

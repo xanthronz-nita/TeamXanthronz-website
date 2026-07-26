@@ -23,9 +23,11 @@ import Login from './components/Login.jsx'
 import Register from './components/Register.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
 import AdminPanel from './components/AdminPanel.jsx'
+import Intro from './components/Intro.jsx'
 
 const Home = () => (
   <div className="relative">
+    <Intro />
     <video
       className="fixed inset-0 w-full h-full object-cover -z-20"
       src="/videos/215761_medium.mp4"
