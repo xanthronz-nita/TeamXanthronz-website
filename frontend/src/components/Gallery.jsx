@@ -137,7 +137,7 @@ export default function Gallery() {
     <section className="relative min-h-screen bg-[#040d06]/0 text-white overflow-hidden px-4 sm:px-6 lg:px-10 py-10 sm:py-16">
       <video className="fixed inset-0 w-full h-full object-cover -z-20 opacity-55"
         src="/videos/215761_medium.mp4" autoPlay muted loop playsInline />
-      <div className="fixed inset-0 -z-10 bg-[#040d06]/25" />
+      <div className="fixed inset-0 -z-10 bg-[#040d06]/10" />
 
       <div className="max-w-6xl mx-auto">
 

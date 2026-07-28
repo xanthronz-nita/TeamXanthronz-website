@@ -25,9 +25,14 @@ import ProtectedRoute from './components/ProtectedRoute.jsx'
 import AdminPanel from './components/AdminPanel.jsx'
 import Intro from './components/Intro.jsx'
 
-const Home = () => (
+const IntroPage = () => (
   <div className="relative">
     <Intro />
+  </div>
+);
+
+const HomePage = () => (
+  <div className="relative">
     <video
       className="fixed inset-0 w-full h-full object-cover -z-20"
       src="/videos/215761_medium.mp4"
@@ -36,7 +41,7 @@ const Home = () => (
       loop
       playsInline
     />
-    <div className="fixed inset-0 -z-10 bg-[#040d06]/50" />
+    <div className="fixed inset-0 -z-10 bg-[#040d06]/10" />
     <Lander />
     <Achievements />
     <EventsHome />
@@ -47,7 +52,8 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path='/' element={<Layout />}>
-        <Route index element={<Home />} />
+        <Route index element={<IntroPage />} />
+        <Route path='home' element={<HomePage />} />
         <Route path='squads' element={<Squads />} />
         <Route path='gallery' element={<Gallery />} />
         <Route path='evolve' element={<Evolve />} />

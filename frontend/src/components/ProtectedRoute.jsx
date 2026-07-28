@@ -22,7 +22,7 @@ export default function ProtectedRoute({ element, allowedRoles }) {
 
     // logged in but role not allowed — send to home
     if (allowedRoles && !allowedRoles.includes(user.role)) {
-        return <Navigate to="/" replace />
+        return <Navigate to="/home" replace />
     }
 
     // all good — render the page

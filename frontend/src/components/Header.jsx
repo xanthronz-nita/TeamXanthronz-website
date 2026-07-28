@@ -7,7 +7,7 @@ import api from "../api/axiosInstance.js";
 import { getErrorMessage } from "../utils/errorHandler.js";
 
 const NAV_LINKS = [
-  { to: "/", label: "Home" },
+  { to: "/home", label: "Home" },
   { to: "/squads", label: "Squads" },
   { to: "/events", label: "Events" },
   { to: "/evolve", label: "Evolve" },
@@ -67,7 +67,7 @@ export default function Header() {
   const handleLogout = async () => {
     await logout();
     setDrawerOpen(false);
-    navigate("/");
+    navigate("/home");
   };
 
   return (
@@ -80,7 +80,7 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 h-16 sm:h-20 flex items-center justify-between gap-4">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 sm:gap-3 shrink-0 group">
+          <Link to="/home" className="flex items-center gap-2 sm:gap-3 shrink-0 group">
             <div className="relative">
               <img src="/logos/TEAM_logo.png" alt="Xanthronz"
                 className="h-9 sm:h-12 w-auto drop-shadow-[0_0_6px_rgba(0,255,136,0.4)] group-hover:drop-shadow-[0_0_12px_rgba(0,255,136,0.6)] transition-all duration-300" />
@@ -95,7 +95,7 @@ export default function Header() {
           <ul className="hidden lg:flex items-center gap-1">
             {NAV_LINKS.map(({ to, label }) => (
               <li key={to}>
-                <NavLink to={to} end={to === "/"}
+                <NavLink to={to} end={to === "/home"}
                   className={({ isActive }) =>
                     `relative px-4 py-2 text-sm font-semibold tracking-widest transition-all duration-300 rounded-md inline-block
                     ${isActive ? "text-[#00FF88]" : "text-[#8fa89a] hover:text-[#00FF88]"}`
@@ -193,7 +193,7 @@ export default function Header() {
             </p>
             <nav className="flex flex-col gap-1 mb-8">
               {NAV_LINKS.map(({ to, label }) => (
-                <NavLink key={to} to={to} end={to === "/"}
+                <NavLink key={to} to={to} end={to === "/home"}
                   onClick={() => setDrawerOpen(false)}
                   className={({ isActive }) =>
                     `flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold tracking-wide transition-all duration-200

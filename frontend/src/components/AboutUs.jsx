@@ -22,7 +22,7 @@ export default function AboutUs() {
 
       {/* Background video + tint */}
       <video className="fixed inset-0 w-full h-full object-cover -z-20 opacity-55" src="/videos/215761_medium.mp4" autoPlay muted loop playsInline />
-      <div className="fixed inset-0 -z-10 bg-[#040d06]/25" />
+      <div className="fixed inset-0 -z-10 bg-[#040d06]/10" />
 
       {/* Glow blobs */}
       <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#00FF88]/5 blur-[120px] rounded-full" />

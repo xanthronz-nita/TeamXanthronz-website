@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export default function Intro() {
-  const VIDEO_KEY = 'introPlayed'
+  const VIDEO_KEY = 'hasPlayedIntro'
   const navigate = useNavigate()
   const videoRef = useRef(null)
   const [visible, setVisible] = useState(() => {
@@ -13,8 +13,8 @@ export default function Intro() {
     }
   })
 
-  // mounted -> used to trigger fade-in
-  const [mounted, setMounted] = useState(false)
+  // mounted -> tracks mount state for opacity transitions
+  const [mounted, setMounted] = useState(true) // Start mounted to avoid flash of content
   const [fadingOut, setFadingOut] = useState(false)
 
   useEffect(() => {
@@ -29,12 +29,9 @@ export default function Intro() {
     v.addEventListener('loadedmetadata', setRate)
     v.play().catch(() => {})
 
-    // trigger fade-in on next tick
-    const id = requestAnimationFrame(() => setMounted(true))
-
+    // No delay needed - already mounted
     return () => {
       v.removeEventListener('loadedmetadata', setRate)
-      cancelAnimationFrame(id)
     }
   }, [visible])
 
@@ -44,7 +41,7 @@ export default function Intro() {
     setFadingOut(true)
     setTimeout(() => {
       setVisible(false)
-      navigate('/')
+      navigate('/home')
     }, 700)
   }
 

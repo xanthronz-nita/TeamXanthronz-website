@@ -48,18 +48,18 @@ const fadeUp = {
 
 export default function Lander() {
   return (
-    <section className="relative flex flex-col justify-center items-center min-h-screen w-full overflow-hidden text-white px-4 sm:px-6">
+    <section className="relative flex flex-col justify-center items-center h-[100vh] w-full overflow-hidden text-white px-4 sm:px-6">
 
       {/* Glows - properly contained */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-[700px] h-[700px] rounded-full bg-[#00FF88]/5 blur-[160px]" />
+          <div className="w-[500px] h-[500px] rounded-full bg-[#00FF88]/5 blur-[100px]" />
         </div>
-        <div className="absolute top-1/4 right-1/2 transform translate-x-1/2 w-[350px] h-[350px] rounded-full bg-[#00CCFF]/4 blur-[120px]" />
+        <div className="absolute top-1/3 right-1/2 transform translate-x-1/2 w-[250px] h-[250px] rounded-full bg-[#00CCFF]/4 blur-[60px]" />
       </div>
 
       <motion.div
-        className="relative z-10 flex flex-col items-center text-center gap-5 sm:gap-7 max-w-5xl w-full mx-auto py-6"
+        className="relative z-10 flex flex-col items-center text-center gap-3 sm:gap-4 max-w-5xl w-full mx-auto py-2"
         variants={container}
         initial="hidden"
         animate="show"
@@ -132,7 +132,7 @@ export default function Lander() {
           variants={fadeUp}
           className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full max-w-xs sm:max-w-none sm:w-auto"
         >
-          <motion.button
+          {/* <motion.button
             onClick={() => document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" })}
             whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.97 }}
@@ -140,7 +140,7 @@ export default function Lander() {
             style={{ fontFamily: "'Orbitron', sans-serif" }}
           >
             EXPLORE
-          </motion.button>
+          </motion.button> */}
           <motion.a
             href="/about"
             whileHover={{ scale: 1.04, y: -2 }}

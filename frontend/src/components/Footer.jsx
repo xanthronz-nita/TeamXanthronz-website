@@ -3,7 +3,7 @@ import { MapPin, Phone, Mail, Github, Linkedin, Instagram, Globe, Heart, Zap } f
 import { Link } from "react-router-dom";
 
 const NAV = [
-  { label: "Home", to: "/" },
+  { label: "Home", to: "/home" },
   { label: "Squads", to: "/Squads" },
   { label: "Events", to: "/events" },
   { label: "Evolve", to: "/evolve" },

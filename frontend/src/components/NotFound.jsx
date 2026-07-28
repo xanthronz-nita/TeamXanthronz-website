@@ -64,7 +64,7 @@ export default function NotFound() {
           className="flex flex-col sm:flex-row items-center justify-center gap-3"
         >
           <Link
-            to="/"
+            to="/home"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#00CC66] to-[#00FF88] text-black font-black text-sm tracking-widest hover:opacity-90 shadow-[0_0_24px_rgba(0,255,136,0.25)] transition-all duration-300"
             style={{ fontFamily: "'Orbitron', sans-serif" }}
           >

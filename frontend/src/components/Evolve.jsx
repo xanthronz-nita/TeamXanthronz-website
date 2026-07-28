@@ -25,7 +25,7 @@ export default function Evolve() {
   return (
     <section className="relative min-h-screen bg-[#040d06]/0 text-white overflow-hidden">
       <video className="fixed inset-0 w-full h-full object-cover -z-20 opacity-55" src="/videos/215761_medium.mp4" autoPlay muted loop playsInline />
-      <div className="fixed inset-0 -z-10 bg-[#040d06]/25" />
+      <div className="fixed inset-0 -z-10 bg-[#040d06]/10" />
       <div className="pointer-events-none absolute top-0 left-0 w-[600px] h-[400px] bg-[#00FF88]/4 blur-[130px] rounded-full" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-16">

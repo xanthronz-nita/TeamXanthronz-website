@@ -222,7 +222,7 @@ export default function AdminPanel() {
             </span>
           </div>
           <Link
-            to="/"
+            to="/home"
             className="flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 text-gray-400 text-xs font-bold tracking-widest hover:border-[#00FF88]/30 hover:text-[#00FF88] transition-all duration-300"
             style={{ fontFamily: "'Orbitron', sans-serif" }}
           >
