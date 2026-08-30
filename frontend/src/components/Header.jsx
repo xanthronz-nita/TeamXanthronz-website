@@ -16,7 +16,6 @@ const NAV_LINKS = [
 const DRAWER_LINKS = [
   { to: "/gallery", label: "Gallery", icon: Image },
   { to: "/about", label: "About Us", icon: Info },
-  { to: "/achievements", label: "Achievements", icon: Zap },
 ];
 
 export default function Header() {

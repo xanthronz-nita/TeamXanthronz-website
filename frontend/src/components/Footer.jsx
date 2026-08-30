@@ -4,12 +4,11 @@ import { Link } from "react-router-dom";
 
 const NAV = [
   { label: "Home", to: "/" },
-  { label: "Squads", to: "/Squads" },
+  { label: "Squads", to: "/squads" },
   { label: "Events", to: "/events" },
   { label: "Evolve", to: "/evolve" },
   { label: "Gallery", to: "/gallery" },
   { label: "About Us", to: "/about" },
-  { label: "Achievements", to: "/achievements" },
 ];
 
 const SOCIAL = [

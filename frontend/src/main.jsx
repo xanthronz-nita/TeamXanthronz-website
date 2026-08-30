@@ -15,7 +15,6 @@ import Squads from './components/Squads.jsx'
 import Gallery from './components/Gallery.jsx'
 import Events from './components/Events.jsx'
 import AboutUs from './components/AboutUs.jsx'
-import AchievementsPage from './components/AchievementsPage.jsx'
 import Evolve from './components/Evolve.jsx'
 import NotFound from './components/NotFound.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
@@ -51,7 +50,6 @@ const router = createBrowserRouter(
         <Route path='evolve' element={<Evolve />} />
         <Route path='events' element={<Events />} />
         <Route path='about' element={<AboutUs />} />
-        <Route path='achievements' element={<AchievementsPage />} />
         <Route path='*' element={<NotFound />} />
       </Route>
 
