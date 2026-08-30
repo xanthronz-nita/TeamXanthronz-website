@@ -4,17 +4,16 @@ import { Link } from "react-router-dom";
 
 const NAV = [
   { label: "Home", to: "/" },
-  { label: "Squads", to: "/Squads" },
+  { label: "Squads", to: "/squads" },
   { label: "Events", to: "/events" },
   { label: "Evolve", to: "/evolve" },
   { label: "Gallery", to: "/gallery" },
   { label: "About Us", to: "/about" },
-  { label: "Achievements", to: "/achievements" },
 ];
 
 const SOCIAL = [
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
+  { icon: Instagram, href: "https://www.instagram.com/team_xanthronz_ebaja?igsi=aWR1bWUzN2s2eHVu", label: "Instagram" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/team-xanthronz/", label: "LinkedIn" },
   { icon: Github, href: "#", label: "GitHub" },
   { icon: Globe, href: "#", label: "Website" },
 ];
@@ -101,12 +100,12 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <Phone size={15} className="text-[#00FF88] shrink-0" />
-                <span className="text-gray-500">+91 9876543210</span>
+                <span className="text-gray-500">+91 95875 92397, +91 70752 39484</span>
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <Mail size={15} className="text-[#00FF88] shrink-0" />
-                <a href="mailto:xanthronz.team@gmail.com" className="text-gray-500 hover:text-[#00FF88] transition-colors">
-                  xanthronz.team@gmail.com
+                <a href="mailto:xanthronz.nita@gmail.com" className="text-gray-500 hover:text-[#00FF88] transition-colors">
+                  xanthronz.nita@gmail.com
                 </a>
               </li>
             </ul>
