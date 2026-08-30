@@ -32,7 +32,7 @@ function RotatingWords() {
 
 const STATS = [
   { num: "AIR 1", label: "Among IITs & NITs" },
-  { num: "2018", label: "Est. NIT Agartala" },
+  { num: "2021", label: "Est. NIT Agartala" },
   { num: "95+", label: "Teams Competed" },
   { num: "1st", label: "E-ATV NE India" },
 ];
@@ -71,7 +71,7 @@ export default function Lander() {
             style={{ fontFamily: "'Orbitron', sans-serif" }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#00FF88] shadow-[0_0_8px_#00FF88] animate-pulse" />
-            SAE E-BAJA &nbsp;·&nbsp; NIT AGARTALA &nbsp;·&nbsp; SINCE 2018
+            SAE E-BAJA &nbsp;·&nbsp; NIT AGARTALA &nbsp;·&nbsp; SINCE 2021
           </span>
         </motion.div>
 
