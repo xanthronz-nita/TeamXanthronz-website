@@ -13,10 +13,17 @@ const NAV = [
 ];
 
 const SOCIAL = [
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: Globe, href: "#", label: "Website" },
+  { icon: Instagram, href: "https://www.instagram.com/team_xanthronz_ebaja/", label: "Instagram" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/team-xanthronz/", label: "LinkedIn" },
+  { icon: Github, href: "https://github.com/xanthronz-nita", label: "GitHub" },
+];
+
+const QUICK_LINKS = [
+  { label: "SAE E-BAJA", href: "https://www.sae.org/attend/student-events/", external: true },
+  { label: "NIT Agartala", href: "https://www.nita.ac.in/", external: true },
+  { label: "Blog", href: "https://www.instagram.com/team_xanthronz_ebaja/", external: true },
+  { label: "FAQ", href: "/about", external: false },
+  { label: "Sponsors", href: "/home", external: false },
 ];
 
 export default function Footer() {
@@ -78,13 +85,23 @@ export default function Footer() {
               Resources
             </h3>
             <ul className="space-y-2.5">
-              {["SAE E-BAJA", "NIT Agartala", "Blog", "FAQ", "Sponsors"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-sm text-gray-500 hover:text-[#00FF88] transition-colors duration-200">
-                    {item}
-                  </a>
-                </li>
-              ))}
+              {QUICK_LINKS.map(({ label, href, external }) => {
+                const LinkComponent = external ? "a" : Link;
+                const linkProps = external
+                  ? { href, target: "_blank", rel: "noreferrer" }
+                  : { to: href };
+
+                return (
+                  <li key={label}>
+                    <LinkComponent
+                      {...linkProps}
+                      className="text-sm text-gray-500 hover:text-[#00FF88] transition-colors duration-200"
+                    >
+                      {label}
+                    </LinkComponent>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -97,16 +114,16 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm">
                 <MapPin size={15} className="text-[#00FF88] shrink-0 mt-0.5" />
-                <span className="text-gray-500">NIT Agartala, Tripura, India — 799046</span>
+                <span className="text-gray-500">SMITHY SHOP, WORKSHOP, NIT Agartala, Tripura, India — 799046</span>
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <Phone size={15} className="text-[#00FF88] shrink-0" />
-                <span className="text-gray-500">+91 9876543210</span>
+                <span className="text-gray-500">+91 9587592397</span>
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <Mail size={15} className="text-[#00FF88] shrink-0" />
                 <a href="mailto:xanthronz.team@gmail.com" className="text-gray-500 hover:text-[#00FF88] transition-colors">
-                  xanthronz.team@gmail.com
+                  xanthronz.nita@gmail.com
                 </a>
               </li>
             </ul>
@@ -115,7 +132,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/5 pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-600">
-          <p>© 2025 Team Xanthronz · NIT Agartala. All rights reserved.</p>
+          <p>© 2026 Team Xanthronz · NIT Agartala. All rights reserved.</p>
           <p className="flex items-center gap-1.5">
             Developed with{" "}
             <Heart size={12} className="text-[#00FF88]" />{" "}

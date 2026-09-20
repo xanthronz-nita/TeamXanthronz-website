@@ -41,7 +41,7 @@ const HomePage = () => (
       loop
       playsInline
     />
-    <div className="fixed inset-0 -z-10 bg-[#040d06]/10" />
+    <div className="fixed inset-0 -z-10 bg-[#040d06]/1" />
     <Lander />
     <Achievements />
     <EventsHome />
