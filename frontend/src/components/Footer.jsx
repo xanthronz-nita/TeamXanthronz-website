@@ -137,7 +137,7 @@ export default function Footer() {
             Developed with{" "}
             <Heart size={12} className="text-[#00FF88]" />{" "}
             by the{" "}
-            <span className="text-[#00FF88] font-semibold">Xanthronz Tech Team</span>
+            <span className="text-[#00FF88] font-semibold">@iotabugg ·&nbsp;Xanthronz Dev Team</span>
           </p>
         </div>
       </div>
